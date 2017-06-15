@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h2 class="page-header">Generate Character</h2>
+
+    	<p>
+			The stat rolls for {{ name }} are as follows: 
+		</p>
+    	<p>
+			{% for i in 0..5 %}
+				{{ stats[i] }}
+				{%if i < 5 %}, {% endif %}
+			{% endfor %}
+		</p>
+  		
+{% endblock %}
+

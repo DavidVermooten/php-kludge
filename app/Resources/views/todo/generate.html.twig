@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<h2 class="page-header">Generate Character</h2>
+
+		<p>
+			For whom are the stats being generated?
+			<a href="{{ path('todo_displaychar', {'name': 'Bob'}) }}">Test</a>
+		</p>
+
+		{{ form_start(form) }}
+		{{ form_widget(form) }}
+		{{ form_end(form) }}
+		
+{% endblock %}
+
