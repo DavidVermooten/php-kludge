@@ -273,8 +273,8 @@ class TodoController extends Controller{
 
         if ($form->isSubmitted() && $form->isValid()) {
             $directory = $form->getData();
-            var_dump($directory);
-            die('-'.$_SERVER['DOCUMENT_ROOT'].'-');
+            //var_dump($directory);
+            //die('-'.$_SERVER['DOCUMENT_ROOT'].'-');
             return $this->redirectToRoute('todo_file_data', array(
                 //'directory' => $directory-> getDirectory()
                 //'directory' => __DIR__
@@ -307,7 +307,6 @@ class TodoController extends Controller{
         } 
 
         $shellCommandBase = "java -jar ".__DIR__.'../../../Jars/'."tika-app-1.14.jar\" --metadata \"";
-        //$shellCommandBase = "java -jar \"C:\\jars\\tika-app-1.14.jar\" --metadata \"";
         $filesMetadata = array();       //initializing array of arrays of key value pairs per file
         $filesKeys = array();           //initializing array of arrays of keys per file
         for ($j=0;$j<count($files);$j++) {
