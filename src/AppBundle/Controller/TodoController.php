@@ -276,9 +276,9 @@ class TodoController extends Controller{
             //var_dump($directory);
             //die('-'.$_SERVER['DOCUMENT_ROOT'].'-');
             return $this->redirectToRoute('todo_file_data', array(
-                //'directory' => $directory-> getDirectory()
+                'directory' => $directory-> getDirectory()
                 //'directory' => __DIR__
-                'directory' => $directory
+                //'directory' => $directory
                 ));
         }
 
@@ -289,7 +289,7 @@ class TodoController extends Controller{
 
 
     /**
-     * @Route("/todo/filedata/directory/", name="todo_file_data")
+     * @Route("/todo/filedata/{directory}", name="todo_file_data")
      */
     public function filedataAction($directory){
         $finder = new Finder();
@@ -306,13 +306,16 @@ class TodoController extends Controller{
             $i++;
         } 
 
-        $shellCommandBase = "java -jar ".__DIR__.'../../../Jars/'."tika-app-1.14.jar\" --metadata \"";
+        $shellCommandBase = "java -jar \"".__DIR__.'..\..\..\Jars\\'."tika-app-1.14.jar\" --metadata \"";
         $filesMetadata = array();       //initializing array of arrays of key value pairs per file
         $filesKeys = array();           //initializing array of arrays of keys per file
         for ($j=0;$j<count($files);$j++) {
             //$filesMetadata[$j] = TikaWrapper::getMetaData($files[$j]);
             $command = $shellCommandBase.$files[$j].'"';
             exec($command, $output);
+
+var_dump($command);
+//var_dump($output);
 
             $d = array();
             unset($oneFile);
