@@ -314,7 +314,7 @@ class TodoController extends Controller{
             $command = $shellCommandBase.$files[$j].'"';
             exec($command, $output);
 
-var_dump($command);
+//var_dump($command);
 //var_dump($output);
 
             $d = array();
